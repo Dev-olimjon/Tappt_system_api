@@ -15,6 +15,8 @@ import * as path from 'path'
 import { LanguageTable } from './lanuage/madel/language.madel';
 import { MarkedModule } from './marked/marked.module';
 import {MarkedTable} from "./marked/madel/marked.madel";
+import { HistoryModule } from './history/history.module';
+import {HistoryTable} from "./history/madel/history.madel";
 @Module({
   imports: [
     ServeStaticModule.forRoot({ rootPath: path.resolve(__dirname, 'static') }),
@@ -32,7 +34,8 @@ import {MarkedTable} from "./marked/madel/marked.madel";
         BannedsTable,
         BooksTable,
         LanguageTable,
-        MarkedTable
+        MarkedTable,
+        HistoryTable
       ],
     }),
     UsersModule,
@@ -42,6 +45,7 @@ import {MarkedTable} from "./marked/madel/marked.madel";
     FileModule,
     LanuageModule,
     MarkedModule,
+    HistoryModule,
   ],
 })
 export class AppModule {}
