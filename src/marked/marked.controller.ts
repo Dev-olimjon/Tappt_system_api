@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { MarkedService } from './marked.service';
 import { AuthGuard } from 'src/auth/guards/auth.guard';
 import { MarkedDto } from './dto/marked.dto';
@@ -35,4 +35,9 @@ export class MarkedController {
       GetByBookId(@Param('id') id: string) {
         return this.markedService.GetByBookId(id)
     }
+
+    @Delete('/:id')
+      DeleteOne() {
+        
+      }
 }
