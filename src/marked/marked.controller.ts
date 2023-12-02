@@ -6,6 +6,7 @@ import { MarkedDto } from './dto/marked.dto';
 @Controller('marked')
 export class MarkedController {
     constructor(private markedService: MarkedService) {}
+    
     @UseGuards(AuthGuard)
     @Get()
       GetAll() {
@@ -36,8 +37,21 @@ export class MarkedController {
         return this.markedService.GetByBookId(id)
     }
 
+    @UseGuards(AuthGuard)
     @Delete('/:id')
-      DeleteOne() {
-        
+      DeleteOne(@Param('id') id: string) {
+        return this.markedService.DeleteOne(id)
+      }
+
+    @UseGuards(AuthGuard)
+    @Delete('/user/:id')  
+      DeleteByUserId(@Param('id')id: string) {
+        return this.markedService.DeleteByUserId(id)
+      }
+
+    @UseGuards(AuthGuard)
+    @Delete('book/:id')  
+      DeleteByBookId(@Param('id')id: string) {
+        return this.markedService.DeleteByBookId(id)
       }
 }
