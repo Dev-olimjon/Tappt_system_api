@@ -25,12 +25,9 @@ import { TypesModule } from './types/types.module';
     ConfigModule.forRoot({ envFilePath: '.env' }),
     SequelizeModule.forRoot({
       dialect: 'postgres',
-      host: process.env.PG_HOST,
       port: 5432,
-      username: process.env.PG_USER,
-      password: process.env.PG_PASSWORD,
-      database: process.env.PG_DB,
       autoLoadModels: true,
+      uri: 'postgresql://olimjonmakhmudov26156:AP9rK6mNeVTR@ep-red-wildflower-993389-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require',
       models: [
         UsersTable,
         BannedsTable,
