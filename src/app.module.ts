@@ -17,6 +17,8 @@ import { MarkedModule } from './marked/marked.module';
 import {MarkedTable} from "./marked/madel/marked.madel";
 import { HistoryModule } from './history/history.module';
 import {HistoryTable} from "./history/madel/history.madel";
+import { TypesModule } from './types/types.module';
+
 @Module({
   imports: [
     ServeStaticModule.forRoot({ rootPath: path.resolve(__dirname, 'static') }),
@@ -46,6 +48,7 @@ import {HistoryTable} from "./history/madel/history.madel";
     LanuageModule,
     MarkedModule,
     HistoryModule,
+    TypesModule,
   ],
 })
 export class AppModule {}
