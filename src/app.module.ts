@@ -18,7 +18,6 @@ import {MarkedTable} from "./marked/madel/marked.madel";
 import { HistoryModule } from './history/history.module';
 import {HistoryTable} from "./history/madel/history.madel";
 import { TypesModule } from './types/types.module';
-
 @Module({
   imports: [
     ServeStaticModule.forRoot({ rootPath: path.resolve(__dirname, 'static') }),
@@ -27,7 +26,10 @@ import { TypesModule } from './types/types.module';
       dialect: 'postgres',
       port: 5432,
       autoLoadModels: true,
-      uri: 'postgresql://olimjonmakhmudov26156:AP9rK6mNeVTR@ep-red-wildflower-993389-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require',
+      //deployed
+      // uri: 'postgresql://olimjonmakhmudov26156:AP9rK6mNeVTR@ep-red-wildflower-993389-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require',
+      //dev
+      uri: 'postgres://olimjon:max26156@localhost/postgres',
       models: [
         UsersTable,
         BannedsTable,
