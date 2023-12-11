@@ -18,6 +18,7 @@ import {MarkedTable} from "./marked/madel/marked.madel";
 import { HistoryModule } from './history/history.module';
 import {HistoryTable} from "./history/madel/history.madel";
 import { TypesModule } from './types/types.module';
+import { TypesTable } from './types/madel/types.madel';
 @Module({
   imports: [
     ServeStaticModule.forRoot({ rootPath: path.resolve(__dirname, 'static') }),
@@ -36,7 +37,8 @@ import { TypesModule } from './types/types.module';
         BooksTable,
         LanguageTable,
         MarkedTable,
-        HistoryTable
+        HistoryTable,
+        TypesTable
       ],
     }),
     UsersModule,
