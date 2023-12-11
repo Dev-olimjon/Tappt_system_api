@@ -43,4 +43,8 @@ export class BannedService {
         })
    }
 
+   async isPossible(id: string) {
+    return await this.bannedsRepository.findOne({where:{userId: id}})
+   }
+
 }
