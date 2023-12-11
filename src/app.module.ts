@@ -27,10 +27,7 @@ import { TypesTable } from './types/madel/types.madel';
       dialect: 'postgres',
       port: 5432,
       autoLoadModels: true,
-      //deployed
-      // uri: 'postgresql://olimjonmakhmudov26156:AP9rK6mNeVTR@ep-red-wildflower-993389-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require',
-      //dev
-      uri: 'postgres://olimjon:max26156@localhost/postgres',
+       uri: 'postgresql://olimjonmakhmudov26156:AP9rK6mNeVTR@ep-red-wildflower-993389-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require',
       models: [
         UsersTable,
         BannedsTable,
