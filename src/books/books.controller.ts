@@ -53,25 +53,25 @@ export class BooksController {
       }
 
     @UseGuards(AuthGuard)
-    @Get('search/:name')
+    @Get('/search/')
       SearchByName(@Query('name') name: string) {
         return this.booksService.SearchByName(name)
       }
 
     @UseGuards(AuthGuard)
-    @Get('author/:author')
+    @Get('/author/')
       SearchByAuthor(@Query('author') author: string) {
         return this.booksService.SearchByAuthor(author)
       }
 
     @UseGuards(AuthGuard)
-    @Get('type/:type')
+    @Get('/type/:type')
       SelectByType(@Param('type') type: string) {
         return this.booksService.SelectByType(type)
       }
 
     @UseGuards(AuthGuard)
-    @Get('language/:language')
+    @Get('/language/:language')
       SelectByLanguage(@Param('language') language: string) {
         return this.booksService.SelectByLanguage(language)
       }
