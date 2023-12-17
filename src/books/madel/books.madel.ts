@@ -1,7 +1,7 @@
 import { Column, DataType, Model, Table } from 'sequelize-typescript'
 import { BooksDto } from '../dto/books.dto';
 
-@Table({ tableName: 'Books' })
+@Table({ tableName: 'books' })
 export class BooksTable extends Model<BooksDto> {
     @Column({ type: DataType.TEXT, unique: true, primaryKey: true }) id: string;
     @Column({ type: DataType.TEXT, unique: true, allowNull: false }) name: string;

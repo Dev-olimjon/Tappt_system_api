@@ -1,6 +1,6 @@
 import { Column, DataType, Model, Table } from 'sequelize-typescript'
 import { UserDto } from '../dto/users.dto';
-@Table({ tableName: 'Users' })
+@Table({ tableName: 'users' })
 export class UsersTable extends Model<UserDto> {
       @Column({ type: DataType.TEXT, unique: true, primaryKey: true })
       id: string;
