@@ -47,6 +47,6 @@ __decorate([
     __metadata("design:type", String)
 ], BooksTable.prototype, "type", void 0);
 exports.BooksTable = BooksTable = __decorate([
-    (0, sequelize_typescript_1.Table)({ tableName: 'Books' })
+    (0, sequelize_typescript_1.Table)({ tableName: 'books' })
 ], BooksTable);
 //# sourceMappingURL=books.madel.js.map

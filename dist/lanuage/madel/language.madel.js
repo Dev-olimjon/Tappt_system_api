@@ -23,6 +23,6 @@ __decorate([
     __metadata("design:type", String)
 ], LanguageTable.prototype, "value", void 0);
 exports.LanguageTable = LanguageTable = __decorate([
-    (0, sequelize_typescript_1.Table)({ tableName: 'Languages' })
+    (0, sequelize_typescript_1.Table)({ tableName: 'languages' })
 ], LanguageTable);
 //# sourceMappingURL=language.madel.js.map

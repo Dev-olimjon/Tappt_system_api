@@ -23,6 +23,6 @@ __decorate([
     __metadata("design:type", String)
 ], TypesTable.prototype, "value", void 0);
 exports.TypesTable = TypesTable = __decorate([
-    (0, sequelize_typescript_1.Table)({ tableName: 'Types' })
+    (0, sequelize_typescript_1.Table)({ tableName: 'types' })
 ], TypesTable);
 //# sourceMappingURL=types.madel.js.map

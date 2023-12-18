@@ -39,6 +39,6 @@ __decorate([
     __metadata("design:type", String)
 ], UsersTable.prototype, "role", void 0);
 exports.UsersTable = UsersTable = __decorate([
-    (0, sequelize_typescript_1.Table)({ tableName: 'Users' })
+    (0, sequelize_typescript_1.Table)({ tableName: 'users' })
 ], UsersTable);
 //# sourceMappingURL=users.madel.js.map

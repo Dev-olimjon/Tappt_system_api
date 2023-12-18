@@ -27,6 +27,6 @@ __decorate([
     __metadata("design:type", String)
 ], MarkedTable.prototype, "bookId", void 0);
 exports.MarkedTable = MarkedTable = __decorate([
-    (0, sequelize_typescript_1.Table)({ tableName: 'Marked' })
+    (0, sequelize_typescript_1.Table)({ tableName: 'marked' })
 ], MarkedTable);
 //# sourceMappingURL=marked.madel.js.map

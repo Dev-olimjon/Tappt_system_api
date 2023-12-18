@@ -27,6 +27,6 @@ __decorate([
     __metadata("design:type", String)
 ], HistoryTable.prototype, "bookId", void 0);
 exports.HistoryTable = HistoryTable = __decorate([
-    (0, sequelize_typescript_1.Table)({ tableName: 'History' })
+    (0, sequelize_typescript_1.Table)({ tableName: 'history' })
 ], HistoryTable);
 //# sourceMappingURL=history.madel.js.map
