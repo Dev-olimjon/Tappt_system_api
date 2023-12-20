@@ -16,11 +16,14 @@ exports.UsersController = void 0;
 const common_1 = require("@nestjs/common");
 const users_service_1 = require("./users.service");
 const users_dto_1 = require("./dto/users.dto");
+const auth_guard_1 = require("../auth/guards/auth.guard");
 const admin_auth_decorater_1 = require("../auth/guards/admin-auth.decorater");
 const admin_guard_1 = require("../auth/guards/admin.guard");
+const auth_service_1 = require("../auth/auth.service");
 let UsersController = class UsersController {
-    constructor(usersService) {
+    constructor(usersService, authService) {
         this.usersService = usersService;
+        this.authService = authService;
     }
     GetAll() {
         return this.usersService.GetAll();
@@ -34,6 +37,9 @@ let UsersController = class UsersController {
     GetByNumber(number) {
         return this.usersService.getUserByNumber(number);
     }
+    Cabinet() {
+        return this.authService.VerifyToken();
+    }
     UpdateUser(idx, NewUser) {
         return this.usersService.editUser(idx, NewUser);
     }
@@ -43,6 +49,7 @@ let UsersController = class UsersController {
 };
 exports.UsersController = UsersController;
 __decorate([
+    (0, common_1.UseGuards)(auth_guard_1.AuthGuard),
     (0, common_1.Get)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
@@ -56,6 +63,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], UsersController.prototype, "AddUser", null);
 __decorate([
+    (0, common_1.UseGuards)(auth_guard_1.AuthGuard),
     (0, common_1.Get)('/:id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
@@ -70,6 +78,13 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], UsersController.prototype, "GetByNumber", null);
 __decorate([
+    (0, common_1.Get)('/me'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], UsersController.prototype, "Cabinet", null);
+__decorate([
+    (0, common_1.UseGuards)(auth_guard_1.AuthGuard),
     (0, common_1.Put)('/:id'),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
@@ -88,6 +103,6 @@ __decorate([
 ], UsersController.prototype, "DeleteUser", null);
 exports.UsersController = UsersController = __decorate([
     (0, common_1.Controller)('users'),
-    __metadata("design:paramtypes", [users_service_1.UsersService])
+    __metadata("design:paramtypes", [users_service_1.UsersService, auth_service_1.AuthService])
 ], UsersController);
 //# sourceMappingURL=users.controller.js.map

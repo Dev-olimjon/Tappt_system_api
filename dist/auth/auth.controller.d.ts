@@ -8,4 +8,5 @@ export declare class AuthController {
     Login(User: LoginDto): Promise<{
         token: string;
     }>;
+    Profile(): Promise<any>;
 }

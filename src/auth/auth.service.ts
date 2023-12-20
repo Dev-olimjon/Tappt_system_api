@@ -6,6 +6,8 @@ import { UserDto } from 'src/users/dto/users.dto';
 import { LoginDto } from './dto/login.dto';
 import { UsersTable } from 'src/users/madel/users.madel';
 import * as bcrypt from 'bcrypt';
+import { Request, request } from 'express';
+
 
 @Injectable()
 export class AuthService {
@@ -54,5 +56,21 @@ export class AuthService {
           }
         }
         throw new UnauthorizedException({ mesaage: 'It is number or password wrong' })
+      }
+      
+      async VerifyToken() {
+      const token = this.extractTokenFromHeader(request);
+        const payload = await this.jwtService.verifyAsync(
+          token,
+          {
+            secret: 'secret'
+          }
+        );
+        return payload
+      }
+
+      private extractTokenFromHeader(request: Request): string | undefined {
+        const [type, token] = request.headers.authorization?.split(' ') ?? [];
+        return type === 'Bearer' ? token : undefined;
       }
 }

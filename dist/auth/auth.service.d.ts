@@ -16,4 +16,6 @@ export declare class AuthService {
         token: string;
     }>;
     ValidateUser(authDto: LoginDto): Promise<UsersTable>;
+    VerifyToken(): Promise<any>;
+    private extractTokenFromHeader;
 }

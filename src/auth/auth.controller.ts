@@ -19,7 +19,7 @@ export class AuthController {
 
     @UseGuards(AuthGuard)
     @Get('/user')
-      Checking() {
-        return HttpStatus.OK
+      Profile() {
+        return this.authService.VerifyToken()
+        }
       }
-}

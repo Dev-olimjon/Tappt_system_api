@@ -4,11 +4,13 @@ import { UserDto } from './dto/users.dto';
 import { AuthGuard } from 'src/auth/guards/auth.guard';
 import { Roles } from 'src/auth/guards/admin-auth.decorater';
 import { AdminGuard } from 'src/auth/guards/admin.guard';
+import { AuthService } from 'src/auth/auth.service';
 
 @Controller('users')
 export class UsersController {
-   constructor (private usersService: UsersService) {}
+   constructor (private usersService: UsersService, private authService: AuthService) {}
 
+   @UseGuards(AuthGuard)
    @Get()
      GetAll() {
         return this.usersService.GetAll()
@@ -19,6 +21,7 @@ export class UsersController {
         return this.usersService.AddUser(User)
     }
 
+    @UseGuards(AuthGuard)
     @Get('/:id')
       GetOne(@Param('id') idx: string) {
         return this.usersService.GetOne(idx)
@@ -28,7 +31,13 @@ export class UsersController {
       GetByNumber(@Body('number') number: number) {
         return this.usersService.getUserByNumber(number)
     }
+
+    @Get('/me')
+      Cabinet() {
+        return this.authService.VerifyToken()
+      }
     
+    @UseGuards(AuthGuard)
     @Put('/:id')
       UpdateUser(@Param('id') idx: string, @Body() NewUser: UserDto) {
         return this.usersService.editUser(idx, NewUser)
