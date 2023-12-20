@@ -5,10 +5,11 @@ import { AuthGuard } from 'src/auth/guards/auth.guard';
 import { Roles } from 'src/auth/guards/admin-auth.decorater';
 import { AdminGuard } from 'src/auth/guards/admin.guard';
 import { AuthService } from 'src/auth/auth.service';
+import { JwtService } from '@nestjs/jwt';
 
 @Controller('users')
 export class UsersController {
-   constructor (private usersService: UsersService, private authService: AuthService) {}
+   constructor (private usersService: UsersService, private authService: AuthService, private jwtService: JwtService) {}
 
    @UseGuards(AuthGuard)
    @Get()
@@ -31,11 +32,6 @@ export class UsersController {
       GetByNumber(@Body('number') number: number) {
         return this.usersService.getUserByNumber(number)
     }
-
-    @Get('/me')
-      Cabinet() {
-        return this.authService.VerifyToken()
-      }
     
     @UseGuards(AuthGuard)
     @Put('/:id')

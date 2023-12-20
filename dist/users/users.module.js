@@ -23,8 +23,7 @@ exports.UsersModule = UsersModule = __decorate([
             sequelize_1.SequelizeModule.forFeature([users_madel_1.UsersTable]),
             jwt_1.JwtModule.register({
                 global: true,
-                secret: 'secret',
-                signOptions: { expiresIn: '90d' },
+                secret: 'secret'
             }),
             (0, common_1.forwardRef)(() => auth_module_1.AuthModule)
         ],

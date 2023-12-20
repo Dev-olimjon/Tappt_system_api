@@ -14,7 +14,6 @@ const common_1 = require("@nestjs/common");
 const jwt_1 = require("@nestjs/jwt");
 const users_service_1 = require("../users/users.service");
 const bcrypt = require("bcrypt");
-const express_1 = require("express");
 let AuthService = class AuthService {
     constructor(jwtService, usersService) {
         this.jwtService = jwtService;
@@ -58,16 +57,10 @@ let AuthService = class AuthService {
         }
         throw new common_1.UnauthorizedException({ mesaage: 'It is number or password wrong' });
     }
-    async VerifyToken() {
-        const token = this.extractTokenFromHeader(express_1.request);
-        const payload = await this.jwtService.verifyAsync(token, {
+    async VerifyToken(token) {
+        return await this.jwtService.verify(token, {
             secret: 'secret'
         });
-        return payload;
-    }
-    extractTokenFromHeader(request) {
-        const [type, token] = request.headers.authorization?.split(' ') ?? [];
-        return type === 'Bearer' ? token : undefined;
     }
 };
 exports.AuthService = AuthService;

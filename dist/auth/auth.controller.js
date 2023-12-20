@@ -18,9 +18,11 @@ const auth_service_1 = require("./auth.service");
 const register_dto_1 = require("./dto/register.dto");
 const login_dto_1 = require("./dto/login.dto");
 const auth_guard_1 = require("./guards/auth.guard");
+const jwt_1 = require("@nestjs/jwt");
 let AuthController = class AuthController {
-    constructor(authService) {
+    constructor(authService, jwtService) {
         this.authService = authService;
+        this.jwtService = jwtService;
     }
     Register(User) {
         return this.authService.Register(User);
@@ -28,8 +30,8 @@ let AuthController = class AuthController {
     Login(User) {
         return this.authService.login(User);
     }
-    Profile() {
-        return this.authService.VerifyToken();
+    Profile(token) {
+        return this.authService.VerifyToken(token);
     }
 };
 exports.AuthController = AuthController;
@@ -49,13 +51,14 @@ __decorate([
 ], AuthController.prototype, "Login", null);
 __decorate([
     (0, common_1.UseGuards)(auth_guard_1.AuthGuard),
-    (0, common_1.Get)('/user'),
+    (0, common_1.Get)('/user/:token'),
+    __param(0, (0, common_1.Param)('token')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "Profile", null);
 exports.AuthController = AuthController = __decorate([
     (0, common_1.Controller)('auth'),
-    __metadata("design:paramtypes", [auth_service_1.AuthService])
+    __metadata("design:paramtypes", [auth_service_1.AuthService, jwt_1.JwtService])
 ], AuthController);
 //# sourceMappingURL=auth.controller.js.map

@@ -11,8 +11,7 @@ import { AuthModule } from 'src/auth/auth.module';
     SequelizeModule.forFeature([UsersTable]),
     JwtModule.register({
       global: true,
-      secret: 'secret',
-      signOptions: { expiresIn: '90d' },
+      secret: 'secret'
     }),
     forwardRef(()=> AuthModule)
   ],

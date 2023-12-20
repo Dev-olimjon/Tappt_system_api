@@ -19,8 +19,14 @@ import { HistoryModule } from './history/history.module';
 import {HistoryTable} from "./history/madel/history.madel";
 import { TypesModule } from './types/types.module';
 import { TypesTable } from './types/madel/types.madel';
+import { JwtModule } from '@nestjs/jwt';
 @Module({
   imports: [
+    JwtModule.register({
+      global: true,
+      secret: 'secret',
+      signOptions: { expiresIn: '30d' },
+    }),
     ServeStaticModule.forRoot({ rootPath: path.resolve(__dirname, 'static') }),
     ConfigModule.forRoot({ envFilePath: '.env' }),
     SequelizeModule.forRoot({

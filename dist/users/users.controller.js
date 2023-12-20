@@ -20,10 +20,12 @@ const auth_guard_1 = require("../auth/guards/auth.guard");
 const admin_auth_decorater_1 = require("../auth/guards/admin-auth.decorater");
 const admin_guard_1 = require("../auth/guards/admin.guard");
 const auth_service_1 = require("../auth/auth.service");
+const jwt_1 = require("@nestjs/jwt");
 let UsersController = class UsersController {
-    constructor(usersService, authService) {
+    constructor(usersService, authService, jwtService) {
         this.usersService = usersService;
         this.authService = authService;
+        this.jwtService = jwtService;
     }
     GetAll() {
         return this.usersService.GetAll();
@@ -36,9 +38,6 @@ let UsersController = class UsersController {
     }
     GetByNumber(number) {
         return this.usersService.getUserByNumber(number);
-    }
-    Cabinet() {
-        return this.authService.VerifyToken();
     }
     UpdateUser(idx, NewUser) {
         return this.usersService.editUser(idx, NewUser);
@@ -78,12 +77,6 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], UsersController.prototype, "GetByNumber", null);
 __decorate([
-    (0, common_1.Get)('/me'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], UsersController.prototype, "Cabinet", null);
-__decorate([
     (0, common_1.UseGuards)(auth_guard_1.AuthGuard),
     (0, common_1.Put)('/:id'),
     __param(0, (0, common_1.Param)('id')),
@@ -103,6 +96,6 @@ __decorate([
 ], UsersController.prototype, "DeleteUser", null);
 exports.UsersController = UsersController = __decorate([
     (0, common_1.Controller)('users'),
-    __metadata("design:paramtypes", [users_service_1.UsersService, auth_service_1.AuthService])
+    __metadata("design:paramtypes", [users_service_1.UsersService, auth_service_1.AuthService, jwt_1.JwtService])
 ], UsersController);
 //# sourceMappingURL=users.controller.js.map

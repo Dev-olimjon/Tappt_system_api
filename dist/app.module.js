@@ -28,12 +28,18 @@ const history_module_1 = require("./history/history.module");
 const history_madel_1 = require("./history/madel/history.madel");
 const types_module_1 = require("./types/types.module");
 const types_madel_1 = require("./types/madel/types.madel");
+const jwt_1 = require("@nestjs/jwt");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
+            jwt_1.JwtModule.register({
+                global: true,
+                secret: 'secret',
+                signOptions: { expiresIn: '30d' },
+            }),
             serve_static_1.ServeStaticModule.forRoot({ rootPath: path.resolve(__dirname, 'static') }),
             config_1.ConfigModule.forRoot({ envFilePath: '.env' }),
             sequelize_1.SequelizeModule.forRoot({

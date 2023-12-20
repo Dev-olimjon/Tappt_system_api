@@ -7,6 +7,7 @@ import { LoginDto } from './dto/login.dto';
 import { UsersTable } from 'src/users/madel/users.madel';
 import * as bcrypt from 'bcrypt';
 import { Request, request } from 'express';
+import { access } from 'fs';
 
 
 @Injectable()
@@ -58,19 +59,9 @@ export class AuthService {
         throw new UnauthorizedException({ mesaage: 'It is number or password wrong' })
       }
       
-      async VerifyToken() {
-      const token = this.extractTokenFromHeader(request);
-        const payload = await this.jwtService.verifyAsync(
-          token,
-          {
+      async VerifyToken(token: string) {
+          return await this.jwtService.verify(token,{
             secret: 'secret'
-          }
-        );
-        return payload
-      }
-
-      private extractTokenFromHeader(request: Request): string | undefined {
-        const [type, token] = request.headers.authorization?.split(' ') ?? [];
-        return type === 'Bearer' ? token : undefined;
+          })
       }
 }
