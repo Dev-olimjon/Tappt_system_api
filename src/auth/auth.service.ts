@@ -6,8 +6,6 @@ import { UserDto } from 'src/users/dto/users.dto';
 import { LoginDto } from './dto/login.dto';
 import { UsersTable } from 'src/users/madel/users.madel';
 import * as bcrypt from 'bcrypt';
-import { Request, request } from 'express';
-import { access } from 'fs';
 
 
 @Injectable()
@@ -60,7 +58,7 @@ export class AuthService {
       }
       
       async VerifyToken(token: string) {
-          return await this.jwtService.verify(token,{
+          return await this.jwtService.verify(token, {
             secret: 'secret'
           })
       }

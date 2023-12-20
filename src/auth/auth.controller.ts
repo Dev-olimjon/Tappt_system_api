@@ -18,7 +18,6 @@ export class AuthController {
         return this.authService.login(User)
     }
 
-    @UseGuards(AuthGuard)
     @Get('/user/:token')
       Profile(@Param('token') token: string) {
         return this.authService.VerifyToken(token)
