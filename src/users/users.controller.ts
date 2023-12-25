@@ -23,7 +23,7 @@ export class UsersController {
     }
 
     @UseGuards(AuthGuard)
-    @Get('/:id')
+    @Get('api/:id')
       GetOne(@Param('id') idx: string) {
         return this.usersService.GetOne(idx)
     }

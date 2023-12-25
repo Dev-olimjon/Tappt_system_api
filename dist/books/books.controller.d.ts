@@ -9,6 +9,7 @@ export declare class BooksController {
     GetOne(idx: string): Promise<import("./madel/books.madel").BooksTable>;
     SearchByName(name: string): Promise<import("./madel/books.madel").BooksTable[]>;
     SearchByAuthor(author: string): Promise<import("./madel/books.madel").BooksTable[]>;
+    RandomBooks(): Promise<[unknown[], unknown]>;
     SelectByType(type: string): Promise<import("./madel/books.madel").BooksTable[]>;
     SelectByLanguage(language: string): Promise<import("./madel/books.madel").BooksTable[]>;
     EditBook(id: string, Book: BooksDto): Promise<[affectedCount: number]>;

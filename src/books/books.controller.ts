@@ -47,7 +47,7 @@ export class BooksController {
       }
 
     @UseGuards(AuthGuard)
-    @Get('/:id') 
+    @Get('api/:id') 
       GetOne(@Param('id') idx: string){
         return this.booksService.GetOne(idx)
       }
@@ -62,6 +62,12 @@ export class BooksController {
     @Get('/author/')
       SearchByAuthor(@Query('author') author: string) {
         return this.booksService.SearchByAuthor(author)
+      }
+      
+    @UseGuards(AuthGuard)  
+    @Get('/recomends')
+      RandomBooks(){
+        return this.booksService.RandomSelect()
       }
 
     @UseGuards(AuthGuard)

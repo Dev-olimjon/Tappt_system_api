@@ -11,6 +11,7 @@ export declare class BooksService {
     GetOne(idx: string): Promise<BooksTable>;
     SearchByName(name: string): Promise<BooksTable[]>;
     SearchByAuthor(author: string): Promise<BooksTable[]>;
+    RandomSelect(): Promise<[unknown[], unknown]>;
     EditBook(id: string, book: BooksDto): Promise<[affectedCount: number]>;
     DeleteBook(id: string): Promise<number>;
     SelectByType(type: string): Promise<BooksTable[]>;

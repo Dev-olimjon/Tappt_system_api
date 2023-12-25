@@ -4,7 +4,7 @@ import { BooksTable } from './madel/books.madel';
 import { BooksDto } from './dto/books.dto';
 import { FileService, FileType } from 'src/file/file.service';
 import { v4 as uuid } from 'uuid';
-import { Op } from 'sequelize';
+import { Op, Sequelize } from 'sequelize';
 
 @Injectable()
 export class BooksService {
@@ -42,6 +42,10 @@ export class BooksService {
     }
     async SearchByAuthor(author: string){
         return await this.booksReporitory.findAll({where:{author: {[Op.like]: `%${author}%`}}})
+    }
+
+    async RandomSelect() {
+        return await this.booksReporitory.sequelize.query('select * from books order by random() limit 12;')
     }
 
     async EditBook(id: string, book: BooksDto) {

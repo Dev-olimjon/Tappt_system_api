@@ -63,7 +63,7 @@ __decorate([
 ], UsersController.prototype, "AddUser", null);
 __decorate([
     (0, common_1.UseGuards)(auth_guard_1.AuthGuard),
-    (0, common_1.Get)('/:id'),
+    (0, common_1.Get)('api/:id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),

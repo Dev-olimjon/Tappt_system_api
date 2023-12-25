@@ -51,6 +51,9 @@ let BooksService = class BooksService {
     async SearchByAuthor(author) {
         return await this.booksReporitory.findAll({ where: { author: { [sequelize_2.Op.like]: `%${author}%` } } });
     }
+    async RandomSelect() {
+        return await this.booksReporitory.sequelize.query('select * from books order by random() limit 12;');
+    }
     async EditBook(id, book) {
         let Book = {
             name: book.name,

@@ -45,6 +45,9 @@ let BooksController = class BooksController {
     SearchByAuthor(author) {
         return this.booksService.SearchByAuthor(author);
     }
+    RandomBooks() {
+        return this.booksService.RandomSelect();
+    }
     SelectByType(type) {
         return this.booksService.SelectByType(type);
     }
@@ -82,7 +85,7 @@ __decorate([
 ], BooksController.prototype, "GetAll", null);
 __decorate([
     (0, common_1.UseGuards)(auth_guard_1.AuthGuard),
-    (0, common_1.Get)('/:id'),
+    (0, common_1.Get)('api/:id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
@@ -104,6 +107,13 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], BooksController.prototype, "SearchByAuthor", null);
+__decorate([
+    (0, common_1.UseGuards)(auth_guard_1.AuthGuard),
+    (0, common_1.Get)('/recomends'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], BooksController.prototype, "RandomBooks", null);
 __decorate([
     (0, common_1.UseGuards)(auth_guard_1.AuthGuard),
     (0, common_1.Get)('/type/:type'),

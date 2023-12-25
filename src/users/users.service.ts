@@ -1,10 +1,14 @@
-import { Injectable } from '@nestjs/common';
+import { Get, Injectable, UseGuards } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { UsersTable } from './madel/users.madel';
 import { UserDto } from './dto/users.dto';
 import { v4 as uuid } from 'uuid';
 import * as bcrypt from 'bcrypt';
 import { RegisterDto } from 'src/auth/dto/register.dto';
+import { AuthGuard } from 'src/auth/guards/auth.guard';
+import { Sequelize } from 'sequelize';
+import sequelize from 'sequelize';
+import { sql } from '@sequelize/core';
 
 @Injectable()
 export class UsersService {
@@ -47,7 +51,6 @@ export class UsersService {
         })
         return Edituser
     } 
- 
     async getUserByNumber(number: number){
         const User = await this.userRepository.findOne({where: {number: number}})
         return User
