@@ -40,7 +40,7 @@ exports.AppModule = AppModule = __decorate([
                 secret: 'secret',
                 signOptions: { expiresIn: '30d' },
             }),
-            serve_static_1.ServeStaticModule.forRoot({ rootPath: path.resolve(__dirname, 'static') }),
+            serve_static_1.ServeStaticModule.forRoot({ rootPath: path.resolve(__dirname, 'discover') }),
             config_1.ConfigModule.forRoot({ envFilePath: '.env' }),
             sequelize_1.SequelizeModule.forRoot({
                 dialect: 'postgres',

@@ -27,7 +27,7 @@ import { JwtModule } from '@nestjs/jwt';
       secret: 'secret',
       signOptions: { expiresIn: '30d' },
     }),
-    ServeStaticModule.forRoot({ rootPath: path.resolve(__dirname, 'static') }),
+    ServeStaticModule.forRoot({ rootPath: path.resolve(__dirname, 'discover') }),
     ConfigModule.forRoot({ envFilePath: '.env' }),
     SequelizeModule.forRoot({
       dialect: 'postgres',
