@@ -14,7 +14,7 @@ export class FileService {
         try {
             const FileException = file.originalname.split('.').pop()
             const FileName = uuid() + '.' + FileException
-            const FilePath = path.resolve(__dirname, '..', 'static', type)
+            const FilePath = path.resolve(__dirname, '..', 'discover', type)
             if(!fs.existsSync(FilePath)) {
                 fs.mkdirSync(FilePath, {recursive: true})
             }

@@ -36,7 +36,7 @@ import {
       // let checked = this.bannedService.GetByUserId(user.id)
       // if(checked){
       //   throw new UnauthorizedException();
-      // }
+      // } 
       return true;
     }
   
