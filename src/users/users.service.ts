@@ -38,7 +38,7 @@ export class UsersService {
         return GetOne
     } 
 
-    async editUser(idx: string, User: UserDto) {
+    async editUser(idx: string, User: RegisterDto) {
         const hashedPassword = await bcrypt.hash(User.password, 10)
         const Edituser = await this.userRepository.update({
            name: User.name,

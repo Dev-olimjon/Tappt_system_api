@@ -12,7 +12,6 @@ export class HistoryController {
         return this.historyService.GetAll()
     }
 
-    @UseGuards(AuthGuard)
     @Post()
       Create(@Body() history: HistoryDto){
         return this.historyService.create(history)

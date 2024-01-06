@@ -53,8 +53,8 @@ export class BooksController {
       }
 
     @UseGuards(AuthGuard)
-    @Get('/search/')
-      SearchByName(@Query('name') name: string) {
+    @Get('/search/:name')
+      SearchByName(@Param('name') name: string) {
         return this.booksService.SearchByName(name)
       }
 

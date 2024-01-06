@@ -62,4 +62,15 @@ export class AuthService {
             secret: 'secret'
           })
       }
+      EditProfile(user: RegisterDto) {
+        const payload = {
+          name: user.name,
+          surname: user.surname,
+          number: user.number,
+          password: user.password
+        }
+        return {
+          token: this.jwtService.sign(payload)
+        }
+      }
 }

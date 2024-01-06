@@ -46,7 +46,7 @@ exports.AppModule = AppModule = __decorate([
                 dialect: 'postgres',
                 port: 5432,
                 autoLoadModels: true,
-                uri: 'postgresql://olimjonmakhmudov26156:AP9rK6mNeVTR@ep-red-wildflower-993389-pooler.us-east-2.aws.neon.tech/tappt?sslmode=require',
+                uri: 'postgres://olimjon:max26156@localhost/tapme',
                 models: [
                     users_madel_1.UsersTable,
                     banned_madel_1.BannedsTable,

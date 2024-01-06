@@ -19,13 +19,21 @@ __decorate([
     __metadata("design:type", String)
 ], HistoryTable.prototype, "id", void 0);
 __decorate([
-    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.TEXT, allowNull: false, unique: true }),
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.TEXT, allowNull: false }),
     __metadata("design:type", String)
 ], HistoryTable.prototype, "userId", void 0);
 __decorate([
-    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.TEXT, allowNull: false, unique: true }),
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.TEXT, allowNull: false }),
     __metadata("design:type", String)
 ], HistoryTable.prototype, "bookId", void 0);
+__decorate([
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.TEXT, allowNull: false }),
+    __metadata("design:type", String)
+], HistoryTable.prototype, "bookpath", void 0);
+__decorate([
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.TEXT, allowNull: false }),
+    __metadata("design:type", String)
+], HistoryTable.prototype, "bookbanner", void 0);
 exports.HistoryTable = HistoryTable = __decorate([
     (0, sequelize_typescript_1.Table)({ tableName: 'history' })
 ], HistoryTable);

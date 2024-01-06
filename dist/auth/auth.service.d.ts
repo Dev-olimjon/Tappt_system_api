@@ -17,4 +17,7 @@ export declare class AuthService {
     }>;
     ValidateUser(authDto: LoginDto): Promise<UsersTable>;
     VerifyToken(token: string): Promise<any>;
+    EditProfile(user: RegisterDto): {
+        token: string;
+    };
 }

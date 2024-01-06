@@ -18,10 +18,12 @@ const auth_service_1 = require("./auth.service");
 const register_dto_1 = require("./dto/register.dto");
 const login_dto_1 = require("./dto/login.dto");
 const jwt_1 = require("@nestjs/jwt");
+const users_service_1 = require("../users/users.service");
 let AuthController = class AuthController {
-    constructor(authService, jwtService) {
+    constructor(authService, jwtService, userService) {
         this.authService = authService;
         this.jwtService = jwtService;
+        this.userService = userService;
     }
     Register(User) {
         return this.authService.Register(User);
@@ -31,6 +33,15 @@ let AuthController = class AuthController {
     }
     Profile(token) {
         return this.authService.VerifyToken(token);
+    }
+    EditProfile(NewUser, idx) {
+        this.userService.editUser(idx, NewUser);
+        try {
+            return this.authService.EditProfile(NewUser);
+        }
+        catch {
+            throw new common_1.HttpException('Forbidden', common_1.HttpStatus.FORBIDDEN);
+        }
     }
 };
 exports.AuthController = AuthController;
@@ -55,8 +66,16 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "Profile", null);
+__decorate([
+    (0, common_1.Put)('/edit/:id'),
+    __param(0, (0, common_1.Body)('user')),
+    __param(1, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [register_dto_1.RegisterDto, String]),
+    __metadata("design:returntype", void 0)
+], AuthController.prototype, "EditProfile", null);
 exports.AuthController = AuthController = __decorate([
     (0, common_1.Controller)('auth'),
-    __metadata("design:paramtypes", [auth_service_1.AuthService, jwt_1.JwtService])
+    __metadata("design:paramtypes", [auth_service_1.AuthService, jwt_1.JwtService, users_service_1.UsersService])
 ], AuthController);
 //# sourceMappingURL=auth.controller.js.map

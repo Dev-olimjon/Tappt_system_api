@@ -4,4 +4,6 @@ export declare class HistoryTable extends Model<HistoryDto> {
     id: string;
     userId: string;
     bookId: string;
+    bookpath: string;
+    bookbanner: string;
 }

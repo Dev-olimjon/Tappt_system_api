@@ -27,7 +27,13 @@ let HistoryService = class HistoryService {
             userId: history.userId,
             bookId: history.bookId
         };
-        return await this.historyRepository.create(newHistory);
+        try {
+            return await this.historyRepository.create(newHistory);
+        }
+        catch (e) {
+            console.log(e);
+            return e.message;
+        }
     }
     async GetAll() {
         return await this.historyRepository.findAll();
@@ -36,7 +42,7 @@ let HistoryService = class HistoryService {
         return await this.historyRepository.findOne({ where: { id: idx } });
     }
     async GetByUserId(idx) {
-        return await this.historyRepository.findOne({ where: { userId: idx } });
+        return await this.historyRepository.findAll({ where: { userId: idx } });
     }
     async GetByBookId(idx) {
         return await this.historyRepository.findOne({ where: { bookId: idx } });

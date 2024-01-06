@@ -14,7 +14,13 @@ export class HistoryService {
       userId: history.userId,
       bookId: history.bookId
     }
-    return await this.historyRepository.create(newHistory)
+    try{
+      return await this.historyRepository.create(newHistory)
+    }
+    catch(e){
+    console.log(e)
+    return e.message
+    }
   }
 
   async GetAll() {
@@ -26,7 +32,7 @@ export class HistoryService {
   }
 
   async GetByUserId(idx: string) {
-    return await this.historyRepository.findOne({ where: { userId: idx } })
+    return await this.historyRepository.findAll({ where: { userId: idx } })
   }
 
   async GetByBookId(idx: string) {

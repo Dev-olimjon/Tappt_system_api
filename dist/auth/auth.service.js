@@ -62,6 +62,17 @@ let AuthService = class AuthService {
             secret: 'secret'
         });
     }
+    EditProfile(user) {
+        const payload = {
+            name: user.name,
+            surname: user.surname,
+            number: user.number,
+            password: user.password
+        };
+        return {
+            token: this.jwtService.sign(payload)
+        };
+    }
 };
 exports.AuthService = AuthService;
 exports.AuthService = AuthService = __decorate([
