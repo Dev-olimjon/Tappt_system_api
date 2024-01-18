@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Param, Delete, UseGuards } from '@nestjs/c
 import { HistoryService } from './history.service';
 import { HistoryDto } from './dto/history.dto';
 import { AuthGuard } from 'src/auth/guards/auth.guard';
+import { RefreshSame } from './dto/refresh.dto';
 
 @Controller('history')
 export class HistoryController {
@@ -52,4 +53,10 @@ export class HistoryController {
       DeleteByBookId(@Param('id') id: string){
       return this.historyService.DeleteByBookId(id)
     }
+
+    @UseGuards(AuthGuard)
+    @Delete('/refresh/same')
+      RefreshSame(@Body() Refresh: RefreshSame) {
+        return this.historyService.RefrshSame(Refresh.bookId, Refresh.userId)
+      }
 }

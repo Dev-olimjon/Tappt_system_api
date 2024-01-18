@@ -25,7 +25,9 @@ let HistoryService = class HistoryService {
         let newHistory = {
             id: (0, uuid_1.v4)(),
             userId: history.userId,
-            bookId: history.bookId
+            bookId: history.bookId,
+            bookbanner: history.bookbanner,
+            bookpath: history.bookpath
         };
         try {
             return await this.historyRepository.create(newHistory);
@@ -55,6 +57,9 @@ let HistoryService = class HistoryService {
     }
     async DeleteByBookId(idx) {
         await this.historyRepository.destroy({ where: { bookId: idx } });
+    }
+    async RefrshSame(bookID, userID) {
+        await this.historyRepository.destroy({ where: { bookId: 'jjj', userId: userID } });
     }
 };
 exports.HistoryService = HistoryService;

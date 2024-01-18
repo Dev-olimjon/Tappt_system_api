@@ -12,7 +12,9 @@ export class MarkedService {
         let newData:MarkedDto = {
             id: uuid(),
             userId: data.userId,
-            BookId: data.BookId
+            BookId: data.BookId,
+            bookpath: data.bookpath,
+            bookbanner: data.bookbanner
         }
         return await this.markedRepository.create(newData)
     }

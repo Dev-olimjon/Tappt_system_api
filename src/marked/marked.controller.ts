@@ -13,7 +13,6 @@ export class MarkedController {
         return this.markedService.GetAll()
     }
 
-    @UseGuards(AuthGuard)
     @Post()
       Create(@Body() MarkedBook: MarkedDto) {
         return this.markedService.create(MarkedBook)

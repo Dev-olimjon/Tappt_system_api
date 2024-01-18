@@ -55,7 +55,6 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], MarkedController.prototype, "GetAll", null);
 __decorate([
-    (0, common_1.UseGuards)(auth_guard_1.AuthGuard),
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),

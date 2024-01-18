@@ -11,4 +11,5 @@ export declare class HistoryService {
     DeleteOne(idx: string): Promise<number>;
     DeleteByUserId(idx: string): Promise<number>;
     DeleteByBookId(idx: string): Promise<void>;
+    RefrshSame(bookID: string, userID: string): Promise<void>;
 }

@@ -12,7 +12,9 @@ export class HistoryService {
     let newHistory: HistoryDto = {
       id: uuid(),
       userId: history.userId,
-      bookId: history.bookId
+      bookId: history.bookId,
+      bookbanner: history.bookbanner,
+      bookpath: history.bookpath
     }
     try{
       return await this.historyRepository.create(newHistory)
@@ -49,5 +51,9 @@ export class HistoryService {
 
   async DeleteByBookId(idx: string) {
     await this.historyRepository.destroy({ where: { bookId: idx } })
+  }
+
+  async RefrshSame(bookID: string, userID: string) {
+    await this.historyRepository.destroy( { where: {bookId: 'jjj', userId: userID}} )
   }
 }

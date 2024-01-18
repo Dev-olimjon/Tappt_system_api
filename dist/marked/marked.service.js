@@ -25,7 +25,9 @@ let MarkedService = class MarkedService {
         let newData = {
             id: (0, uuid_1.v4)(),
             userId: data.userId,
-            BookId: data.BookId
+            BookId: data.BookId,
+            bookpath: data.bookpath,
+            bookbanner: data.bookbanner
         };
         return await this.markedRepository.create(newData);
     }

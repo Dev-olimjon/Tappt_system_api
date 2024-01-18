@@ -17,6 +17,7 @@ const common_1 = require("@nestjs/common");
 const history_service_1 = require("./history.service");
 const history_dto_1 = require("./dto/history.dto");
 const auth_guard_1 = require("../auth/guards/auth.guard");
+const refresh_dto_1 = require("./dto/refresh.dto");
 let HistoryController = class HistoryController {
     constructor(historyService) {
         this.historyService = historyService;
@@ -44,6 +45,9 @@ let HistoryController = class HistoryController {
     }
     DeleteByBookId(id) {
         return this.historyService.DeleteByBookId(id);
+    }
+    RefreshSame(Refresh) {
+        return this.historyService.RefrshSame(Refresh.bookId, Refresh.userId);
     }
 };
 exports.HistoryController = HistoryController;
@@ -109,6 +113,14 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], HistoryController.prototype, "DeleteByBookId", null);
+__decorate([
+    (0, common_1.UseGuards)(auth_guard_1.AuthGuard),
+    (0, common_1.Delete)('/refresh/same'),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [refresh_dto_1.RefreshSame]),
+    __metadata("design:returntype", void 0)
+], HistoryController.prototype, "RefreshSame", null);
 exports.HistoryController = HistoryController = __decorate([
     (0, common_1.Controller)('history'),
     __metadata("design:paramtypes", [history_service_1.HistoryService])

@@ -19,13 +19,21 @@ __decorate([
     __metadata("design:type", String)
 ], MarkedTable.prototype, "id", void 0);
 __decorate([
-    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.TEXT, allowNull: false, unique: true }),
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.TEXT, allowNull: false }),
     __metadata("design:type", String)
 ], MarkedTable.prototype, "userId", void 0);
 __decorate([
-    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.TEXT, allowNull: false, unique: true }),
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.TEXT, allowNull: false }),
     __metadata("design:type", String)
-], MarkedTable.prototype, "bookId", void 0);
+], MarkedTable.prototype, "BookId", void 0);
+__decorate([
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.TEXT, allowNull: false }),
+    __metadata("design:type", String)
+], MarkedTable.prototype, "bookpath", void 0);
+__decorate([
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.TEXT, allowNull: false }),
+    __metadata("design:type", String)
+], MarkedTable.prototype, "bookbanner", void 0);
 exports.MarkedTable = MarkedTable = __decorate([
     (0, sequelize_typescript_1.Table)({ tableName: 'marked' })
 ], MarkedTable);

@@ -1,5 +1,6 @@
 import { HistoryService } from './history.service';
 import { HistoryDto } from './dto/history.dto';
+import { RefreshSame } from './dto/refresh.dto';
 export declare class HistoryController {
     private historyService;
     constructor(historyService: HistoryService);
@@ -11,4 +12,5 @@ export declare class HistoryController {
     DeleteOne(id: string): Promise<number>;
     DeleteByUserId(id: string): Promise<number>;
     DeleteByBookId(id: string): Promise<void>;
+    RefreshSame(Refresh: RefreshSame): Promise<void>;
 }
