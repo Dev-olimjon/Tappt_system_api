@@ -31,9 +31,8 @@ import { JwtModule } from '@nestjs/jwt';
     ConfigModule.forRoot({ envFilePath: '.env' }),
     SequelizeModule.forRoot({
       dialect: 'postgres',
-      port: 5432,
+      uri: 'postgresql://olimjonmakhmudov26156:g2GuJmqDtof1@ep-rough-lab-a1fgysjf-pooler.ap-southeast-1.aws.neon.tech/seeuidb?sslmode=require',
       autoLoadModels: true,
-       uri: 'postgresql://olimjonmakhmudov26156:AP9rK6mNeVTR@ep-red-wildflower-993389-pooler.us-east-2.aws.neon.tech/tappt?sslmode=require',
       models: [
         UsersTable,
         BannedsTable,
