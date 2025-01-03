@@ -14,6 +14,7 @@ import { sql } from '@sequelize/core';
 export class UsersService {
     constructor(@InjectModel(UsersTable) private userRepository: typeof UsersTable) {}
 
+
     async AddUser(User: RegisterDto) {
       const hashedPassword = await bcrypt.hash(User.password, 10)
       let CreatingUser: UserDto = {
